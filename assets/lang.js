@@ -22,6 +22,9 @@
     root.setAttribute("lang", lang);
     var t = root.getAttribute("data-title-" + lang);
     if (t) document.title = t;
+    var d = root.getAttribute("data-desc-" + lang);
+    var m = document.querySelector('meta[name="description"]');
+    if (d && m) m.setAttribute("content", d);
     var buttons = document.querySelectorAll("[data-set-lang]");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].setAttribute("aria-pressed", buttons[i].getAttribute("data-set-lang") === lang ? "true" : "false");
